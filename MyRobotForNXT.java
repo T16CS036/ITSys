@@ -32,10 +32,10 @@ public class MyRobotForNXT extends Robot
 
 	while (true) {
 	    /* 現在の状態を観測 */
-//		int state = q[];		
+	
 
 	    /* その状態における最適な行動を実行 */
-//		move(state);
+
 
 	    // delay()メソッドは、Robot.javaに応じていずれかの機能を実行する
 	    // 速度調整＆画面描画 (シミュレーター用)

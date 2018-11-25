@@ -302,8 +302,4 @@ public class MyRobot extends Robot
 		}
 
 	}
-
-	void trash(){
-
-	}
 }

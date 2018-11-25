@@ -30,9 +30,11 @@ public class QLearning {
   public int selectAction(int state, double epsilon)
   {
 	  // epsilon より小さい時、ランダムな行動をとる
-	  if(random.nextDouble() < epsilon)
-		  return random.nextInt(actions);
-
+	  Random rand1 = new Random();
+	  if(rand1.nextDouble() < epsilon) {
+		  Random rand = new Random(); // ランダム用の変数
+		  return rand.nextInt(actions);
+	  }
 	  // そうでないと、一番大きい Ｑ値を持っている次の行動を選択する
 	  return getNextActionFromMaxQ(state);
   }
@@ -88,9 +90,10 @@ public class QLearning {
 	  }
 	  
 	  // 一番大きい Ｑ値を持っている複数のaction の中でランダムで一つを選ぶ
-	  if(nextAction == -1)
-		  nextAction = actionList.get(random.nextInt(actionList.size()));
-	  
+	  if(nextAction == -1) {
+		  Random rand2 = new Random();
+		  nextAction = actionList.get(rand2.nextInt(actionList.size()));
+	  }
 	  return nextAction;
   }
   
@@ -133,5 +136,4 @@ public class QLearning {
 	private double gamma = 0; // 割引率
 	private int actions = 0;  // 行動数
 	private ArrayList<Integer> actionList = new ArrayList<>(); // 行動の保存用のリスト
-	private Random random = new Random(); // ランダム用の変数
 }
