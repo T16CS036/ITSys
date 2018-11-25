@@ -41,7 +41,7 @@ public class MyRobot extends Robot
 				//int action = ql.selectAction(state);
 
 				/*--------------- 選択した行動を実行 (ロボットを移動する) ---------------*/
-				moveRobotCar(action);
+				moveRobot(action);
 
 				/*--------------- 新しい状態を観測＆報酬を得る ---------------*/
 				//次の状態番号
@@ -80,8 +80,8 @@ public class MyRobot extends Robot
 		System.out.println("Done!!!!!!!!!!!!!!!!!");
 		//System.exit(0);
 	}
-
-	public int getState(){
+	//the state of Robot 
+	public int getState(){ 
 
 		int stateNum = 0;
 
@@ -108,9 +108,8 @@ public class MyRobot extends Robot
 	/**
 	 * ロボットを移動する
 	 */
-	public void moveRobotCar(int action)
+	public void moveRobot(int action)
 	{
-		// 0:LEFT 1:RIGHT
 		// 壁がないことを確認して移動する
 		if(action == 0) // STRAIGHT
 			goForward(1);
@@ -291,7 +290,7 @@ public class MyRobot extends Robot
 			int action = qlearn.selectAction(state);
 
 			// 選択した行動を実行 (ロボットを移動する)
-			moveRobotCar(action);
+			moveRobot(action);
 
 			// 速度調整＆画面描画
 			delay();
