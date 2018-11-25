@@ -54,8 +54,10 @@ public class MyRobot extends Robot
 				// Goal に到達したら 100 報酬を与え、普通の通路なら -10
 				if(isOnGoal())
 					reward = 1000;
-				else if(getColor(LIGHT_B) == BLACK || getColor(LIGHT_B) == BLUE )
+				else if(getColor(LIGHT_B) == BLACK)
 					reward = 50;
+				else if(getColor(LIGHT_B) == BLUE)
+					reward = 200;
 				else if(getColor(LIGHT_B) == WHITE)
 					reward = -100;
 
