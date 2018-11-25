@@ -28,15 +28,15 @@ public class MyRobotForNXT extends Robot
     public void run() throws InterruptedException
     {
 	/* 学習した最適政策を表す配列 */
-    	int[] q = new int[8];
-		q[0] = 2;
-		q[1] = 2;
-		q[2] = 2;
-		q[3] = 2;
-		q[4] = 2;
-		q[5] = 2;
-		q[6] = 2;
-		q[7] = 2;
+//    	int[] q = new int[8];
+//		q[0] = 2;
+//		q[1] = 2;
+//		q[2] = 2;
+//		q[3] = 2;
+//		q[4] = 2;
+//		q[5] = 2;
+//		q[6] = 2;
+//		q[7] = 2;
 
 	while (true) {
 	    /* 現在の状態を観測 */

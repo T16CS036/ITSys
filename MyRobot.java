@@ -54,7 +54,7 @@ public class MyRobot extends Robot
 				// Goal に到達したら 100 報酬を与え、普通の通路なら -10
 				if(isOnGoal())
 					reward = 1000;
-				else if(getColor(LIGHT_B) == BLACK)
+				else if(getColor(LIGHT_B) == BLACK || getColor(LIGHT_B) == BLUE )
 					reward = 50;
 				else if(getColor(LIGHT_B) == WHITE)
 					reward = -100;
@@ -87,17 +87,17 @@ public class MyRobot extends Robot
 			stateNum = 0;
 		else if(getColor(LIGHT_A) == WHITE && getColor(LIGHT_B) == WHITE && getColor(LIGHT_C) == BLACK)
 			stateNum = 1;
-		else if(getColor(LIGHT_A) == WHITE && getColor(LIGHT_B) == BLACK && getColor(LIGHT_C) == WHITE)
+		else if(getColor(LIGHT_A) == WHITE && (getColor(LIGHT_B) == BLACK || getColor(LIGHT_B) == BLUE) && getColor(LIGHT_C) == WHITE)
 			stateNum = 2;
-		else if(getColor(LIGHT_A) == WHITE && getColor(LIGHT_B) == BLACK && getColor(LIGHT_C) == BLACK)
+		else if(getColor(LIGHT_A) == WHITE && (getColor(LIGHT_B) == BLACK || getColor(LIGHT_B) == BLUE) && getColor(LIGHT_C) == BLACK)
 			stateNum = 3;
 		else if(getColor(LIGHT_A) == BLACK && getColor(LIGHT_B) == WHITE && getColor(LIGHT_C) == WHITE)
 			stateNum = 4;
 		else if(getColor(LIGHT_A) == BLACK && getColor(LIGHT_B) == WHITE && getColor(LIGHT_C) == BLACK)
 			stateNum = 5;
-		else if(getColor(LIGHT_A) == BLACK && getColor(LIGHT_B) == BLACK && getColor(LIGHT_C) == WHITE)
+		else if(getColor(LIGHT_A) == BLACK && (getColor(LIGHT_B) == BLACK || getColor(LIGHT_B) == BLUE) && getColor(LIGHT_C) == WHITE)
 			stateNum = 6;
-		else if(getColor(LIGHT_A) == BLACK && getColor(LIGHT_B) == BLACK && getColor(LIGHT_C) == BLACK)
+		else if(getColor(LIGHT_A) == BLACK && (getColor(LIGHT_B) == BLACK || getColor(LIGHT_B) == BLUE) && getColor(LIGHT_C) == BLACK)
 			stateNum = 7;
 
 		return stateNum;
@@ -180,6 +180,10 @@ public class MyRobot extends Robot
 			turnLeft(165);
 		else if(action == 34) // RIGHT
 			turnRight(165);
+		else if(action == 35) // LEFT
+			turnLeft(180);
+		else if(action == 36) // RIGHT
+			turnRight(180);
 		
 		// ロボットの位置座標を更新
 		if(action != 0)
@@ -195,7 +199,7 @@ public class MyRobot extends Robot
 			rotateRight(angle);
 	}
 	public void goStraight(int moveSpeed){
-		if(getColor(LIGHT_B) == BLACK)
+		if(getColor(LIGHT_B) == BLACK || getColor(LIGHT_B) == BLUE)
 			forward(moveSpeed);
 	}
 	
